@@ -1,0 +1,57 @@
+[
+  {
+    "id": "amz1",
+    "company": "Amazon",
+    "role": "Software Development Engineer I",
+    "location": "Seattle, WA",
+    "url": "https://simplify.jobs",
+    "active": true,
+    "score": 82,
+    "resume": "SWE",
+    "reasoning": "Amazon SDE-1 is a strong fit — backend microservices, REST APIs, and AWS experience align well with the role requirements."
+  },
+  {
+    "id": "nv1",
+    "company": "NVIDIA",
+    "role": "Deep Learning Engineer New Grad",
+    "location": "Santa Clara, CA",
+    "url": "https://simplify.jobs",
+    "active": true,
+    "score": 74,
+    "resume": "MLE",
+    "reasoning": "Deep learning focus matches PyTorch and BiLSTM project experience — MLE resume leads with stronger signal here."
+  },
+  {
+    "id": "db1",
+    "company": "Databricks",
+    "role": "Software Engineer New Grad",
+    "location": "San Francisco, CA",
+    "url": "https://simplify.jobs",
+    "active": true,
+    "score": 67,
+    "resume": "SWE",
+    "reasoning": "Moderate fit — distributed systems and Python experience relevant but Spark/Scala gap may hurt."
+  },
+  {
+    "id": "boeing1",
+    "company": "Boeing",
+    "role": "F-22 Simulation Software Engineer",
+    "location": "Berkeley, MO",
+    "url": "https://simplify.jobs",
+    "active": true,
+    "score": 31,
+    "resume": "SWE",
+    "reasoning": "Weak fit — defense simulation requires domain knowledge and security clearance not present in profile."
+  },
+  {
+    "id": "ibm1",
+    "company": "IBM",
+    "role": "Software Developer",
+    "location": "San Jose, CA",
+    "url": "https://simplify.jobs",
+    "active": true,
+    "score": 71,
+    "resume": "SWE",
+    "reasoning": "Good fit — backend and microservices experience maps well, enterprise client exposure at Tristha is a plus."
+  }
+]
