@@ -1,0 +1,15 @@
+Name: Rahul Rubugunday
+Degree: M.S. Computer Science, Northern Arizona University (May 2026) + MCA from SASTRA University
+Experience: 2+ years Software Engineer at Tristha Global (Chennai)
+  - Built backend microservices using Python, Java, Node.js, Express, TypeScript
+  - Worked on a low-code/no-code automation platform built on Node-RED
+  - Enterprise clients: Amex, Visa, Fiserv
+  - Bulk field-update feature (350+ test cases), PDF report export (500+ scenarios)
+  - AWS deployment, Azure Blob Storage
+Projects:
+  - Fake News Detection: BiLSTM + attention mechanism, 92% accuracy, 40K articles (PyTorch, NLP)
+  - Movie Recommendation: SentenceTransformers + FAISS, 45K movies, sub-10ms retrieval
+Skills: Python, Java, Node.js, Express, REST APIs, Microservices, Docker, AWS, Azure,
+        MongoDB, Redis, Git, SQL, PyTorch, FAISS, SentenceTransformers, System Design, OOP
+MLE resume strengths: ML projects, PyTorch, NLP, embeddings, model architecture
+SWE resume strengths: backend microservices, production reliability, REST APIs, AWS, Tristha work

@@ -3,6 +3,6 @@ import operator
 
 
 class JobState(TypedDict):
-    jobs: Annotated[list, operator.add]
-    analyzed: Annotated[list, operator.add]
+    jobs: list
+    analyzed: list
     errors: Annotated[list, operator.add]

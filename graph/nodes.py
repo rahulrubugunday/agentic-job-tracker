@@ -1,7 +1,8 @@
-import os
 import json
+import os
 from graph.state import JobState
 from tools.fetcher import fetch_listings
+from tools.scorer import score_jobs
 
 
 def fetch_jobs_node(state: JobState) -> dict:
@@ -22,17 +23,21 @@ def filter_jobs_node(state: JobState) -> dict:
 
 
 def analyze_fit_node(state: JobState) -> dict:
-    print(">> Node 3: Reading Colab results...")
-    path = "data/results.json"
-    if not os.path.exists(path):
-        print("   No results.json found. Run the Colab notebook first.")
-        return {"analyzed": [], "errors": ["Run Colab notebook first"]}
-    with open(path) as f:
-        analyzed = json.load(f)
-    print(f"   Loaded {len(analyzed)} analyzed jobs from Colab output")
-    return {"analyzed": analyzed, "errors": []}
+    print(">> Node 3: Scoring jobs with ModernBERT...")
+    try:
+        analyzed = score_jobs(state["jobs"])
+        print(f"   Scored {len(analyzed)} jobs")
+        return {"analyzed": analyzed, "errors": []}
+    except Exception as e:
+        print(f"   Scoring failed: {e}")
+        return {"analyzed": [], "errors": [str(e)]}
 
 
 def store_results_node(state: JobState) -> dict:
-    print(">> Node 4: Results already stored by Colab.")
+    print(">> Node 4: Saving results...")
+    path = "data/results.json"
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(state["analyzed"], f, indent=2)
+    print(f"   Saved {len(state['analyzed'])} results to {path}")
     return {}
