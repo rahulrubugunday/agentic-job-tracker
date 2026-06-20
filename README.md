@@ -68,4 +68,4 @@ Python, LangGraph, FastAPI, ModernBERT (HuggingFace Transformers), vanilla JS fr
 
 ## Screenshot
 
-![Dashboard showing filtered job results by fit score](assets/Screenshot 2026-06-20 at 2.22.37 PM.png)
+![Dashboard showing filtered job results by fit score](assets/DashBoard.png)
