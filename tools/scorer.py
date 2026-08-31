@@ -62,9 +62,13 @@ def _build_reasoning(score: int, resume: str, company: str, role: str) -> str:
     return f"{company} — {role} is a {fit} at {score}% similarity. Recommend {resume} resume."
 
 
-def score_jobs(jobs: list) -> list:
-    with open(PROFILE_PATH) as f:
-        profile_text = f.read()
+def score_jobs(jobs: list, profile_text: str = None) -> list:
+    if not profile_text:
+        if os.path.exists(PROFILE_PATH):
+            with open(PROFILE_PATH) as f:
+                profile_text = f.read()
+        else:
+            profile_text = "Default professional profile"
 
     profile_embedding = _get_embedding(profile_text)
 
