@@ -1,9 +1,10 @@
 import json
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from pypdf import PdfReader
 from graph.graph import build_graph
 
 app = FastAPI()
@@ -24,12 +25,26 @@ def serve_frontend():
 
 
 @app.post("/analyze")
-def analyze():
+async def analyze(resume: UploadFile = File(None)):
+    profile_text = None
+    if resume:
+        contents = await resume.read()
+        import io
+        reader = PdfReader(io.BytesIO(contents))
+        extracted_text = []
+        for page in reader.pages:
+            text = page.extract_text()
+            if text:
+                extracted_text.append(text)
+        if extracted_text:
+            profile_text = "\n".join(extracted_text)
+
     graph = build_graph()
     initial_state = {
         "jobs": [],
         "analyzed": [],
-        "errors": []
+        "errors": [],
+        "profile_text": profile_text
     }
     result = graph.invoke(initial_state)
     return {

@@ -25,7 +25,8 @@ def filter_jobs_node(state: JobState) -> dict:
 def analyze_fit_node(state: JobState) -> dict:
     print(">> Node 3: Scoring jobs with ModernBERT...")
     try:
-        analyzed = score_jobs(state["jobs"])
+        profile_text = state.get("profile_text")
+        analyzed = score_jobs(state["jobs"], profile_text=profile_text)
         print(f"   Scored {len(analyzed)} jobs")
         return {"analyzed": analyzed, "errors": []}
     except Exception as e:
